@@ -7,10 +7,16 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="MediatR" Version="12.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HR_Management.Domain\HR_Management.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\LeaveType\Handlers\Commands\" />
+    <Folder Include="Features\LeaveType\Requests\Commands\" />
   </ItemGroup>
 
 </Project>
