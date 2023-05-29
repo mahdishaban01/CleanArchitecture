@@ -9,7 +9,7 @@
         public int LeaveTypeId { get; set; }
         public DateTime RequestDate { get; set; }
         public string RequestComments { get; set; }
-        public DateTime ActionDate { get; set; }
+        public DateTime? ActionDate { get; set; }
         public bool IsApprove { get; set; }
         public bool IsCancel { get; set; }
 

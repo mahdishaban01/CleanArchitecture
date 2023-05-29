@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Features.LeaveType.Requests.Queries;
-
-namespace HR_Management.Application.Features.LeaveType.Handlers.Queries
+﻿namespace HR_Management.Application.Features.LeaveType.Handlers.Queries
 {
     public class GetLeaveTypeDetailRequestHandler :
         IRequestHandler<GetLeaveTypeDetailRequest, LeaveTypeDTO>

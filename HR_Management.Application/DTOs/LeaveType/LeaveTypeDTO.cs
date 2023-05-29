@@ -1,4 +1,4 @@
-﻿namespace HR_Management.Application.DTOs
+﻿namespace HR_Management.Application.DTOs.LeaveType
 {
     public class LeaveTypeDTO : BaseDTO
     {
