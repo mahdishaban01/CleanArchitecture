@@ -2,7 +2,8 @@
 {
     public interface ILeaveRequestRepository:IGenericRepository<LeaveRequest>
     {
-        Task<LeaveRequest> GetLeaveRequestWithDetails(long id);
         Task<List<LeaveRequest>> GetLeaveRequestsWithDetails();
+        Task<LeaveRequest> GetLeaveRequestWithDetails(long id);
+        Task ChangeApprovalStatus(LeaveRequest leaveRequest, bool IsApprove);
     }
 }
