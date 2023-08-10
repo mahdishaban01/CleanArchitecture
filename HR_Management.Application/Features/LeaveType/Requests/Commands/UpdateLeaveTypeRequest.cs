@@ -2,6 +2,6 @@
 {
     public class UpdateLeaveTypeRequest : IRequest<Unit>
     {
-        public LeaveTypeDTO LeaveTypeDTO { get; set; }
+        public UpdateLeaveTypeDTO UpdateLeaveTypeDTO { get; set; }
     }
 }

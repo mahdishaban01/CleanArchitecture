@@ -2,6 +2,6 @@
 {
     public class UpdateLeaveAllocationRequest : IRequest<Unit>
     {
-        public UpdateLeaveAllocationDTO LeaveAllocationDTO { get; set; }
+        public UpdateLeaveAllocationDTO UpdateLeaveAllocationDTO { get; set; }
     }
 }

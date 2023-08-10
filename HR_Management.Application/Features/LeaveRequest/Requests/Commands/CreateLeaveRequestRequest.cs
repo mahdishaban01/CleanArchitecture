@@ -2,6 +2,6 @@
 {
     public class CreateLeaveRequestRequest : IRequest<long>
     {
-        public CreateLeaveRequestDTO LeaveRequestDTO { get; set; }
+        public CreateLeaveRequestDTO CreateLeaveRequestDTO { get; set; }
     }
 }

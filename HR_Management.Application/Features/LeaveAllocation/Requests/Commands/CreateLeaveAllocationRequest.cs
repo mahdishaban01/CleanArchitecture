@@ -2,6 +2,6 @@
 {
     public class CreateLeaveAllocationRequest : IRequest<long>
     {
-        public CreateLeaveAllocationDTO LeaveAllocationDTO { get; set; }
+        public CreateLeaveAllocationDTO CreateLeaveAllocationDTO { get; set; }
     }
 }

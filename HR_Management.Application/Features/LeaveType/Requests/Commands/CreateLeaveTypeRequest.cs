@@ -2,6 +2,6 @@
 {
     public class CreateLeaveTypeRequest:IRequest<long>
     {
-        public LeaveTypeDTO LeaveTypeDTO { get; set; }
+        public CreateLeaveTypeDTO CreateLeaveTypeDTO { get; set; }
     }
 }
