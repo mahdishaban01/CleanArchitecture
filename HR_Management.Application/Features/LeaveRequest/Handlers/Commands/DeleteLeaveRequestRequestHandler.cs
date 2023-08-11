@@ -1,4 +1,6 @@
-﻿namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
+﻿using HR_Management.Application.Exceptions;
+
+namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
 {
     public class DeleteLeaveRequestRequestHandler :
         IRequestHandler<DeleteLeaveRequestRequest>
@@ -18,6 +20,10 @@
         public async Task Handle(DeleteLeaveRequestRequest request, CancellationToken cancellationToken)
         {
             var leaveRequest = await _leaveTypeRepository.Get(request.Id);
+
+            if (leaveRequest == null)
+                throw new NotFoundException(nameof(Domain.Entities.LeaveRequest), request.Id);
+
             await _leaveTypeRepository.Delete(leaveRequest);
         }
     }

@@ -1,4 +1,5 @@
 ﻿using HR_Management.Application.DTOs.LeaveType.Validators;
+using HR_Management.Application.Exceptions;
 
 namespace HR_Management.Application.Features.LeaveType.Handlers.Commands
 {
@@ -25,7 +26,7 @@ namespace HR_Management.Application.Features.LeaveType.Handlers.Commands
             var validationResult = await validator.ValidateAsync(request.UpdateLeaveTypeDTO);
 
             if (validationResult.IsValid == false)
-                throw new Exception();
+                throw new ValidationException(validationResult);
 
             #endregion
 

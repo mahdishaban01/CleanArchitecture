@@ -1,4 +1,5 @@
 ﻿using HR_Management.Application.DTOs.LeaveRequest.Validators;
+using HR_Management.Application.Exceptions;
 using HR_Management.Application.Persistence.Contracts;
 
 namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
@@ -28,7 +29,7 @@ namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
             var validationResult = await validator.ValidateAsync(request.UpdateLeaveRequestDTO);
 
             if (validationResult.IsValid == false)
-                throw new Exception();
+                throw new ValidationException(validationResult);
 
             #endregion
 
