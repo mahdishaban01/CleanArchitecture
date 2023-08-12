@@ -1,6 +1,8 @@
-﻿namespace HR_Management.Application.Features.LeaveType.Requests.Commands
+﻿using HR_Management.Application.Responses;
+
+namespace HR_Management.Application.Features.LeaveType.Requests.Commands
 {
-    public class CreateLeaveTypeRequest:IRequest<long>
+    public class CreateLeaveTypeRequest : IRequest<BaseCommandResponse>
     {
         public CreateLeaveTypeDTO CreateLeaveTypeDTO { get; set; }
     }

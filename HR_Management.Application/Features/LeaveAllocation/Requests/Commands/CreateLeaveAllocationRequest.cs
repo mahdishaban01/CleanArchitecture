@@ -1,6 +1,8 @@
-﻿namespace HR_Management.Application.Features.LeaveAllocation.Requests.Commands
+﻿using HR_Management.Application.Responses;
+
+namespace HR_Management.Application.Features.LeaveAllocation.Requests.Commands
 {
-    public class CreateLeaveAllocationRequest : IRequest<long>
+    public class CreateLeaveAllocationRequest : IRequest<BaseCommandResponse>
     {
         public CreateLeaveAllocationDTO CreateLeaveAllocationDTO { get; set; }
     }
