@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace HR_Management.Infrastructure
 {
-    public static class InfrastractureServicesRegistration
+    public static class InfrastructureServicesRegistration
     {
-        public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services,
+        public static IServiceCollection ConfigureInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration)
         {
 
