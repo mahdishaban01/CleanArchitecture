@@ -10,6 +10,6 @@ global using HR_Management.Application.Features.LeaveRequest.Requests.Queries;
 global using HR_Management.Application.Features.LeaveType.Handlers.Commands;
 global using HR_Management.Application.Features.LeaveType.Requests.Commands;
 global using HR_Management.Application.Features.LeaveType.Requests.Queries;
-global using HR_Management.Application.Persistence.Contracts;
+global using HR_Management.Application.Contracts.Persistence;
 global using HR_Management.Domain.Entities;
 global using MediatR;

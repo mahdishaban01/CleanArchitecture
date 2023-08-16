@@ -1,6 +1,5 @@
 ﻿using HR_Management.Application.DTOs.LeaveRequest.Validators;
 using HR_Management.Application.Exceptions;
-using HR_Management.Application.Persistence.Contracts;
 
 namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
 {

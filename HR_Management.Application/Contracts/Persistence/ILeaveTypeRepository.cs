@@ -1,4 +1,4 @@
-﻿namespace HR_Management.Application.Persistence.Contracts
+﻿namespace HR_Management.Application.Contracts.Persistence
 {
     public interface ILeaveTypeRepository:IGenericRepository<LeaveType>
     {
