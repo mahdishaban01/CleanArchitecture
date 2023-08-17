@@ -4,8 +4,8 @@
     {
         public long Id { get; set; }
         public DateTime CreateDate { get; set; }
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
         public DateTime LastModifyDate { get; set; }
-        public string LastModifyBy { get; set; }
+        public string? LastModifyBy { get; set; }
     }
 }
