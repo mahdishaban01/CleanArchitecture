@@ -29,7 +29,7 @@ namespace HR_Management.Api.Controllers
 
         // GET api/<LeaveRequestsController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<LeaveRequestDTO>> Get(int id)
+        public async Task<ActionResult<LeaveRequestDTO>> Get(long id)
         {
             var leaveReque = await _mediator.Send(new GetLeaveRequestDetailRequest { Id = id });
             return Ok(leaveReque);
@@ -46,7 +46,7 @@ namespace HR_Management.Api.Controllers
 
         // PUT api/<LeaveRequestsController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] UpdateLeaveRequestDTO leaveRequest)
+        public async Task<ActionResult> Put(long id, [FromBody] UpdateLeaveRequestDTO leaveRequest)
         {
             var command = new UpdateLeaveRequestRequest { Id = id, UpdateLeaveRequestDTO = leaveRequest };
             await _mediator.Send(command);
@@ -55,7 +55,7 @@ namespace HR_Management.Api.Controllers
 
         // DELETE api/<LeaveRequestsController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(long id)
         {
             var command = new DeleteLeaveRequestRequest { Id = id };
             await _mediator.Send(command);
@@ -64,7 +64,7 @@ namespace HR_Management.Api.Controllers
 
         // PUT api/<LeaveRequestsController>/changeapproval/5
         [HttpPut("changeapproval/{id}")]
-        public async Task<ActionResult> ChangeApproval(int id, [FromBody] ChangeLeaveRequestApprovalDTO changeLeaveRequestApproval)
+        public async Task<ActionResult> ChangeApproval(long id, [FromBody] ChangeLeaveRequestApprovalDTO changeLeaveRequestApproval)
         {
             var command = new UpdateLeaveRequestRequest { Id = id, ChangeLeaveRequestApprovalDTO = changeLeaveRequestApproval };
             await _mediator.Send(command);

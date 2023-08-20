@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using System.Net.NetworkInformation;
 using System.Reflection;
 
 namespace HR_Management.Application
@@ -8,6 +9,9 @@ namespace HR_Management.Application
         public static void ConfigureApplicationServices(this IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            services.AddMediatR(config =>
+                config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         }
     }
 }
