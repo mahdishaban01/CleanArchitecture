@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HR_Management.Application.Responses
+﻿namespace HR_Management.Application.Responses
 {
     public class BaseCommandResponse
     {
