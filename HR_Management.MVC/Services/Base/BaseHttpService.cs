@@ -10,8 +10,8 @@ namespace HR_Management.MVC.Services.Base
 
         public BaseHttpService(IClient client, ILocalStorageService localStorage)
         {
-            this._client = client;
-            this._localStorage = localStorage;
+            _client = client;
+            _localStorage = localStorage;
         }
 
         protected Response<Guid> ConvertApiExceptions<Guid>(ApiException exception)
