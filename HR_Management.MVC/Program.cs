@@ -10,6 +10,7 @@ builder.Services.AddHttpClient<IClient, Client>
         (c => c.BaseAddress = new Uri(builder.Configuration.GetSection("ApiAddress").Value));
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddSingleton<ILocalStorageService, LocalStorageService>();
+builder.Services.AddScoped<ILeaveTypeService, LeaveTypeService>();
 
 builder.Services.AddControllersWithViews();
 
