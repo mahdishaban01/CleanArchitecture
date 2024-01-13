@@ -1,6 +1,7 @@
 using HR_Management.Application;
 using HR_Management.Infrastructure;
 using HR_Management.Persistence;
+using HR_Management.Identity;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,10 +14,12 @@ builder.Services.AddControllers();
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
 builder.Services.ConfigureInfrastructureServices(builder.Configuration);
+builder.Services.ConfigureIdentityServices(builder.Configuration);
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+AddSwagger(builder.Services);
 builder.Services.AddCors(o =>
 {
     o.AddPolicy("CorsPolicy", b =>

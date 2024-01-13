@@ -3,7 +3,7 @@ using HR_Management.Identity.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace HR.Management.Identity
+namespace HR_Management.Identity
 {
     public class LeaveManagementIdentityDbContext : IdentityDbContext<ApplicationUser>
     {

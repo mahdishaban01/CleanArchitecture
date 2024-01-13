@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace HR.Management.Identity
+namespace HR_Management.Identity
 {
     public static class IdentityServicesRegistration
     {
