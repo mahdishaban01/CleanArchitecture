@@ -35,5 +35,15 @@ namespace HR_Management.MVC.Controllers
         }
 
         #endregion
+
+        #region Logout
+        [HttpPost]
+        public async Task<IActionResult> Logout()
+        {
+            await _authenticateService.Logout();
+            return LocalRedirect("/Users/Login");
+        }
+
+        #endregion
     }
 }
