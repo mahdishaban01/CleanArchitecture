@@ -4,7 +4,7 @@ using HR_Management.MVC.Services.Base;
 
 namespace HR_Management.MVC
 {
-    public class MappingProfile:Profile
+    public class MappingProfile : Profile
     {
         public MappingProfile()
         {

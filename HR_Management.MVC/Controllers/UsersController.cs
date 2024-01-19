@@ -13,6 +13,33 @@ namespace HR_Management.MVC.Controllers
             _authenticateService = authenticateService;
         }
 
+        #region Register
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterVM register)
+        {
+            if (!ModelState.IsValid)
+            {
+
+                return View(register);
+            }
+
+            var isCreated = await _authenticateService.Register(register);
+            if (isCreated)
+            {
+                return LocalRedirect("/");
+            }
+            ModelState.AddModelError("", "Registration Failed.");
+            return View(register);
+        }
+
+        #endregion
+
         #region Login
 
         public IActionResult Login(string returnUrl = null)
@@ -37,6 +64,7 @@ namespace HR_Management.MVC.Controllers
         #endregion
 
         #region Logout
+
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
