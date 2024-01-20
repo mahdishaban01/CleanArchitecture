@@ -45,8 +45,6 @@ namespace HR_Management.MVC.Services
                 }
 
                 return false;
-
-
             }
             catch
             {
