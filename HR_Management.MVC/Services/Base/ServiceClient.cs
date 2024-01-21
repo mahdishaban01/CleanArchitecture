@@ -195,7 +195,7 @@ namespace HR_Management.MVC.Services.Base
 
         public Client(string baseUrl, System.Net.Http.HttpClient httpClient)
         {
-            BaseUrl = baseUrl;
+            BaseUrl = "";
             _httpClient = httpClient;
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(CreateSerializerSettings, true);
         }
