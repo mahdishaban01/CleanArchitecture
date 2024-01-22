@@ -10,6 +10,6 @@ namespace HR_Management.MVC.Models
         [Required]
         [DataType(DataType.Password)]
         public string Passsword { get; set; }
-        public string? ReturnUrl { get; set; }
+        public string ReturnUrl { get; set; }
     }
 }
