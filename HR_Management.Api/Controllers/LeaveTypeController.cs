@@ -10,20 +10,14 @@ namespace HR_Management.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class LeaveTypeController : ControllerBase
+    public class LeaveTypeController(IMediator mediator) : ControllerBase
     {
-        private readonly IMediator _mediator;
-
-        public LeaveTypeController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
 
         // GET: api/<LeaveTypeController>
         [HttpGet]
         public async Task<ActionResult<List<LeaveTypeDTO>>> Get()
         {
-            var leaveTypes = await _mediator.Send(new GetLeaveTypeListRequest());
+            var leaveTypes = await mediator.Send(new GetLeaveTypeListRequest());
             return Ok(leaveTypes);
         }
 
@@ -31,7 +25,7 @@ namespace HR_Management.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<LeaveTypeDTO>> Get(long id)
         {
-            var leaveType = await _mediator.Send(new GetLeaveTypeDetailRequest { Id = id });
+            var leaveType = await mediator.Send(new GetLeaveTypeDetailRequest { Id = id });
             return Ok(leaveType);
         }
 
@@ -40,7 +34,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Post([FromBody] CreateLeaveTypeDTO leaveType)
         {
             var command = new CreateLeaveTypeRequest { CreateLeaveTypeDTO = leaveType };
-            var response = await _mediator.Send(command);
+            var response = await mediator.Send(command);
             return Ok(response);
         }
 
@@ -49,7 +43,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Put(long id, [FromBody] UpdateLeaveTypeDTO leaveType)
         {
             var command = new UpdateLeaveTypeRequest { UpdateLeaveTypeDTO = leaveType };
-            await _mediator.Send(command);
+            await mediator.Send(command);
             return NoContent();
         }
 
@@ -58,7 +52,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Delete(long id)
         {
             var command = new DeleteLeaveTypeRequest { Id = id };
-            await _mediator.Send(command);
+            await mediator.Send(command);
             return NoContent();
         }
     }

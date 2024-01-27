@@ -1,24 +1,12 @@
 ﻿namespace HR_Management.Application.Features.LeaveType.Handlers.Queries
 {
-    public class GetLeaveTypeDetailRequestHandler :
+    public class GetLeaveTypeDetailRequestHandler(ILeaveTypeRepository leaveTypeRepository, IMapper mapper) :
         IRequestHandler<GetLeaveTypeDetailRequest, LeaveTypeDTO>
     {
-        #region Constructor
-
-        private readonly ILeaveTypeRepository _leaveTypeRepository;
-        private readonly IMapper _mapper;
-        public GetLeaveTypeDetailRequestHandler(ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
-        {
-            _leaveTypeRepository = leaveTypeRepository;
-            _mapper = mapper;
-        }
-
-        #endregion
-
         public async Task<LeaveTypeDTO> Handle(GetLeaveTypeDetailRequest request, CancellationToken cancellationToken)
         {
-            var leaveType = await _leaveTypeRepository.Get(request.Id);
-            return _mapper.Map<LeaveTypeDTO>(leaveType);
+            var leaveType = await leaveTypeRepository.Get(request.Id);
+            return mapper.Map<LeaveTypeDTO>(leaveType);
         }
     }
 }

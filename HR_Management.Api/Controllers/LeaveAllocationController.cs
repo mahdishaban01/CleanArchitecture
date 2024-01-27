@@ -12,22 +12,15 @@ namespace HR_Management.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class LeaveAllocationController : ControllerBase
+    public class LeaveAllocationController(IMediator mediator) : ControllerBase
     {
-
-        private readonly IMediator _mediator;
-
-        public LeaveAllocationController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
 
 
         // GET: api/<LeaveAllocationsController>
         [HttpGet]
         public async Task<ActionResult<List<LeaveAllocationDTO>>> Get()
         {
-            var leaveAllocations = await _mediator.Send(new GetLeaveAllocationListRequest());
+            var leaveAllocations = await mediator.Send(new GetLeaveAllocationListRequest());
             return Ok(leaveAllocations);
         }
 
@@ -35,7 +28,7 @@ namespace HR_Management.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<LeaveAllocationDTO>> Get(long id)
         {
-            var leaveAllocation = await _mediator.Send(new GetLeaveAllocationDetailRequest { Id = id });
+            var leaveAllocation = await mediator.Send(new GetLeaveAllocationDetailRequest { Id = id });
             return Ok(leaveAllocation);
         }
 
@@ -44,7 +37,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Post([FromBody] CreateLeaveAllocationDTO leaveAllocation)
         {
             var Request = new CreateLeaveAllocationRequest { CreateLeaveAllocationDTO = leaveAllocation };
-            var response = await _mediator.Send(Request);
+            var response = await mediator.Send(Request);
             return Ok(response);
         }
 
@@ -53,7 +46,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Put(long id, [FromBody] UpdateLeaveAllocationDTO leaveAllocation)
         {
             var Request = new UpdateLeaveAllocationRequest { UpdateLeaveAllocationDTO = leaveAllocation };
-            await _mediator.Send(Request);
+            await mediator.Send(Request);
             return NoContent();
         }
 
@@ -62,7 +55,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Delete(long id)
         {
             var Request = new DeleteLeaveAllocationRequest { Id = id };
-            await _mediator.Send(Request);
+            await mediator.Send(Request);
             return NoContent();
         }
     }

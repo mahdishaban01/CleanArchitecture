@@ -1,37 +1,19 @@
 ﻿using HR_Management.Application.Contracts.Infrastructure;
 using HR_Management.Application.DTOs.LeaveRequest.Validators;
-using HR_Management.Application.DTOs.LeaveType.Validators;
-using HR_Management.Application.Exceptions;
 using HR_Management.Application.Models;
 using HR_Management.Application.Responses;
 
 namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
 {
-    public class CreateLeaveRequestRequestHandler :
+    public class CreateLeaveRequestRequestHandler(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository,
+        IEmailSender emailSender, IMapper mapper) :
         IRequestHandler<CreateLeaveRequestRequest, BaseCommandResponse>
     {
-        #region Constructor
-
-        private readonly ILeaveRequestRepository _leaveRequestRepository;
-        private readonly ILeaveTypeRepository _leaveTypeRepository;
-        private readonly IEmailSender _emailSender;
-        private readonly IMapper _mapper;
-        public CreateLeaveRequestRequestHandler(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository,
-            IEmailSender emailSender, IMapper mapper)
-        {
-            _leaveRequestRepository = leaveRequestRepository;
-            _leaveTypeRepository = leaveTypeRepository;
-            _emailSender = emailSender;
-            _mapper = mapper;
-        }
-
-        #endregion
-
         public async Task<BaseCommandResponse> Handle(CreateLeaveRequestRequest request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
-            var validator = new CreateLeaveRequestDTOValidator(_leaveTypeRepository);
-            var validationResult = await validator.ValidateAsync(request.CreateLeaveRequestDTO);
+            var validator = new CreateLeaveRequestDTOValidator(leaveTypeRepository);
+            var validationResult = await validator.ValidateAsync(request.CreateLeaveRequestDTO, cancellationToken);
 
             if (validationResult.IsValid == false)
             {
@@ -41,8 +23,8 @@ namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
             }
             else
             {
-                var leaveReuqest = _mapper.Map<Domain.Entities.LeaveRequest>(request.CreateLeaveRequestDTO);
-                leaveReuqest = await _leaveRequestRepository.Add(leaveReuqest);
+                var leaveReuqest = mapper.Map<Domain.Entities.LeaveRequest>(request.CreateLeaveRequestDTO);
+                leaveReuqest = await leaveRequestRepository.Add(leaveReuqest);
 
                 response.Success = true;
                 response.Message = "Creation Successful";
@@ -59,7 +41,7 @@ namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
 
                 try
                 {
-                    await _emailSender.SendEmail(email);
+                    await emailSender.SendEmail(email);
                 }
                 catch (Exception)
                 {

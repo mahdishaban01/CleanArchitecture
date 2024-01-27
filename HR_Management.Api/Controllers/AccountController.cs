@@ -6,25 +6,18 @@ namespace HR_Management.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountController(IAuthService authService) : ControllerBase
     {
-        private readonly IAuthService _authService;
-
-        public AccountController(IAuthService authService)
-        {
-            _authService = authService;
-        }
-
         [HttpPost("login")]
         public async Task<ActionResult<AuthResponse>> Login(AuthRequest request)
         {
-            return Ok(await _authService.Login(request));
+            return Ok(await authService.Login(request));
         }
 
         [HttpPost("register")]
         public async Task<ActionResult<RegisterationResponse>> Register(RegisterationRequest request)
         {
-            return Ok(await _authService.Register(request));
+            return Ok(await authService.Register(request));
         }
     }
 }

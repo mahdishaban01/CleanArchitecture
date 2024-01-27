@@ -1,30 +1,16 @@
 ﻿using HR_Management.Application.DTOs.LeaveType.Validators;
-using HR_Management.Application.Exceptions;
 using HR_Management.Application.Responses;
-using HR_Management.Domain.Entities;
 
 namespace HR_Management.Application.Features.LeaveType.Handlers.Commands
 {
-    public class CreateLeaveTypeRequestHandler :
+    public class CreateLeaveTypeRequestHandler(ILeaveTypeRepository leaveTypeRepository, IMapper mapper) :
         IRequestHandler<CreateLeaveTypeRequest, BaseCommandResponse>
     {
-        #region Constructor
-
-        private readonly ILeaveTypeRepository _leaveTypeRepository;
-        private readonly IMapper _mapper;
-        public CreateLeaveTypeRequestHandler(ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
-        {
-            _leaveTypeRepository = leaveTypeRepository;
-            _mapper = mapper;
-        }
-
-        #endregion
-
         public async Task<BaseCommandResponse> Handle(CreateLeaveTypeRequest request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
             var validator = new CreateLeaveTypeDTOValidator();
-            var validationResult = await validator.ValidateAsync(request.CreateLeaveTypeDTO);
+            var validationResult = await validator.ValidateAsync(request.CreateLeaveTypeDTO, cancellationToken);
 
             if (validationResult.IsValid == false)
             {
@@ -34,8 +20,8 @@ namespace HR_Management.Application.Features.LeaveType.Handlers.Commands
             }
             else
             {
-                var leaveType = _mapper.Map<Domain.Entities.LeaveType>(request.CreateLeaveTypeDTO);
-                leaveType = await _leaveTypeRepository.Add(leaveType);
+                var leaveType = mapper.Map<Domain.Entities.LeaveType>(request.CreateLeaveTypeDTO);
+                leaveType = await leaveTypeRepository.Add(leaveType);
 
                 response.Success = true;
                 response.Message = "Creation Succesdsful";

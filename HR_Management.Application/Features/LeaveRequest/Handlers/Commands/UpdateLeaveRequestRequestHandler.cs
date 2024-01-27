@@ -3,44 +3,30 @@ using HR_Management.Application.Exceptions;
 
 namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
 {
-    public class UpdateLeaveRequestRequestHandler :
+    public class UpdateLeaveRequestRequestHandler(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository, IMapper mapper) :
         IRequestHandler<UpdateLeaveRequestRequest, Unit>
     {
-        #region Constructor
-
-        private readonly ILeaveRequestRepository _leaveRequestRepository;
-        private readonly ILeaveTypeRepository _leaveTypeRepository;
-        private readonly IMapper _mapper;
-        public UpdateLeaveRequestRequestHandler(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
-        {
-            _leaveRequestRepository = leaveRequestRepository;
-            _leaveTypeRepository = leaveTypeRepository;
-            _mapper = mapper;
-        }
-
-        #endregion
-
         public async Task<Unit> Handle(UpdateLeaveRequestRequest request, CancellationToken cancellationToken)
         {
             #region Validation
 
-            var validator = new UpdateLeaveRequestDTOValidator(_leaveTypeRepository);
-            var validationResult = await validator.ValidateAsync(request.UpdateLeaveRequestDTO);
+            var validator = new UpdateLeaveRequestDTOValidator(leaveTypeRepository);
+            var validationResult = await validator.ValidateAsync(request.UpdateLeaveRequestDTO, cancellationToken);
 
             if (validationResult.IsValid == false)
                 throw new ValidationException(validationResult);
 
             #endregion
 
-            var leaveRequest = await _leaveRequestRepository.Get(request.UpdateLeaveRequestDTO.Id);
+            var leaveRequest = await leaveRequestRepository.Get(request.UpdateLeaveRequestDTO.Id);
             if (request.UpdateLeaveRequestDTO != null)
             {
-                _mapper.Map(request.UpdateLeaveRequestDTO, leaveRequest);
-                await _leaveRequestRepository.Update(leaveRequest);
+                mapper.Map(request.UpdateLeaveRequestDTO, leaveRequest);
+                await leaveRequestRepository.Update(leaveRequest);
             }
             else if (request.ChangeLeaveRequestApprovalDTO != null)
             {
-                await _leaveRequestRepository.ChangeApprovalStatus(leaveRequest, request.ChangeLeaveRequestApprovalDTO.IsApprove);
+                await leaveRequestRepository.ChangeApprovalStatus(leaveRequest, request.ChangeLeaveRequestApprovalDTO.IsApprove);
             }
 
             return Unit.Value;

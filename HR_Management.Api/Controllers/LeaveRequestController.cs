@@ -12,20 +12,14 @@ namespace HR_Management.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class LeaveRequestController : ControllerBase
+    public class LeaveRequestController(IMediator mediator) : ControllerBase
     {
-        private readonly IMediator _mediator;
-
-        public LeaveRequestController(IMediator mediator)
-        {
-            _mediator = mediator;
-        }
 
         // GET: api/<LeaveRequestsController>
         [HttpGet]
         public async Task<ActionResult<List<LeaveRequestDTO>>> Get()
         {
-            var leaveReques = await _mediator.Send(new GetLeaveRequestListRequest());
+            var leaveReques = await mediator.Send(new GetLeaveRequestListRequest());
             return Ok(leaveReques);
         }
 
@@ -33,7 +27,7 @@ namespace HR_Management.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<LeaveRequestDTO>> Get(long id)
         {
-            var leaveReque = await _mediator.Send(new GetLeaveRequestDetailRequest { Id = id });
+            var leaveReque = await mediator.Send(new GetLeaveRequestDetailRequest { Id = id });
             return Ok(leaveReque);
         }
 
@@ -42,7 +36,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Post([FromBody] CreateLeaveRequestDTO leaveRequest)
         {
             var command = new CreateLeaveRequestRequest { CreateLeaveRequestDTO = leaveRequest };
-            var response = await _mediator.Send(command);
+            var response = await mediator.Send(command);
             return Ok(response);
         }
 
@@ -51,7 +45,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Put(long id, [FromBody] UpdateLeaveRequestDTO leaveRequest)
         {
             var command = new UpdateLeaveRequestRequest { Id = id, UpdateLeaveRequestDTO = leaveRequest };
-            await _mediator.Send(command);
+            await mediator.Send(command);
             return NoContent();
         }
 
@@ -60,7 +54,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> Delete(long id)
         {
             var command = new DeleteLeaveRequestRequest { Id = id };
-            await _mediator.Send(command);
+            await mediator.Send(command);
             return NoContent();
         }
 
@@ -69,7 +63,7 @@ namespace HR_Management.Api.Controllers
         public async Task<ActionResult> ChangeApproval(long id, [FromBody] ChangeLeaveRequestApprovalDTO changeLeaveRequestApproval)
         {
             var command = new UpdateLeaveRequestRequest { Id = id, ChangeLeaveRequestApprovalDTO = changeLeaveRequestApproval };
-            await _mediator.Send(command);
+            await mediator.Send(command);
             return NoContent();
         }
     }
