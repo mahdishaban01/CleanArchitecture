@@ -3,16 +3,10 @@ using System.Net.Http.Headers;
 
 namespace HR_Management.MVC.Services.Base
 {
-    public class BaseHttpService
+    public class BaseHttpService(IClient client, ILocalStorageService localStorage)
     {
-        protected readonly IClient _client;
-        protected readonly ILocalStorageService _localStorage;
-
-        public BaseHttpService(IClient client, ILocalStorageService localStorage)
-        {
-            _client = client;
-            _localStorage = localStorage;
-        }
+        protected readonly IClient _client = client;
+        protected readonly ILocalStorageService _localStorage = localStorage;
 
         protected Response<Guid> ConvertApiExceptions<Guid>(ApiException exception)
         {

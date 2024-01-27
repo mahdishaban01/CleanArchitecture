@@ -6,14 +6,9 @@ using SendGrid.Helpers.Mail;
 
 namespace HR_Management.Infrastructure.Mail
 {
-    public class EmailSender : IEmailSender
+    public class EmailSender(IOptions<EmailSetting> emailSettings) : IEmailSender
     {
-        private EmailSetting _emailSettings;
-
-        public EmailSender(IOptions<EmailSetting> emailSettings)
-        {
-            _emailSettings = emailSettings.Value;
-        }
+        private readonly EmailSetting _emailSettings = emailSettings.Value;
 
         public async Task<bool> SendEmail(Email email)
         {

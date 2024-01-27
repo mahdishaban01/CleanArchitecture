@@ -3,14 +3,8 @@ using HR_Management.Domain.Entities;
 
 namespace HR_Management.Persistence.Repositories
 {
-    public class LeaveTypeRepository:GenericRepository<LeaveType>, ILeaveTypeRepository
+    public class LeaveTypeRepository(LeaveManagementDbContext dbContext) :
+        GenericRepository<LeaveType>(dbContext), ILeaveTypeRepository
     {
-        private readonly LeaveManagementDbContext _dbContext;
-
-        public LeaveTypeRepository(LeaveManagementDbContext dbContext)
-            :base(dbContext)
-        {
-            _dbContext = dbContext;
-        }
     }
 }

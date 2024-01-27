@@ -5,7 +5,7 @@ namespace HR_Management.MVC.Services
 {
     public class LocalStorageService : ILocalStorageService
     {
-        LocalStorage _storage;
+        private readonly LocalStorage _storage;
 
         public LocalStorageService()
         {

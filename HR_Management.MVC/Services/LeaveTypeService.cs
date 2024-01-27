@@ -5,26 +5,16 @@ using HR_Management.MVC.Services.Base;
 
 namespace HR_Management.MVC.Services
 {
-    public class LeaveTypeService : BaseHttpService,ILeaveTypeService
+    public class LeaveTypeService(IMapper mapper, IClient httpClient, ILocalStorageService localStorageService) : 
+        BaseHttpService(httpClient, localStorageService),ILeaveTypeService
     {
-        private readonly IMapper _mapper;
-        private readonly IClient _httpClient;
-        private readonly ILocalStorageService _localStorageService;
-
-        public LeaveTypeService(IMapper mapper, IClient httpClient, ILocalStorageService localStorageService)
-            : base(httpClient, localStorageService)
-        {
-            _mapper = mapper;
-            _httpClient = httpClient;
-            _localStorageService = localStorageService;
-        }
         public async Task<Response<int>> CreateLeaveType(CreateLeaveTypeVM leaveType)
         {
             try
             {
                 var response = new Response<int>();
                 CreateLeaveTypeDTO createLeaveTypeDto =
-                    _mapper.Map<CreateLeaveTypeDTO>(leaveType);
+                    mapper.Map<CreateLeaveTypeDTO>(leaveType);
 
                 AddBearerToken();
 
@@ -56,21 +46,21 @@ namespace HR_Management.MVC.Services
         {
             AddBearerToken();
             var leaveType = await _client.LeaveTypeGETAsync(id);
-            return _mapper.Map<LeaveTypeVM>(leaveType);
+            return mapper.Map<LeaveTypeVM>(leaveType);
         }
 
         public async Task<List<LeaveTypeVM>> GetLeaveTypes()
         {
             AddBearerToken();
             var leaveTypes = await _client.LeaveTypeAllAsync();
-            return _mapper.Map<List<LeaveTypeVM>>(leaveTypes);
+            return mapper.Map<List<LeaveTypeVM>>(leaveTypes);
         }
 
         public async Task<Response<int>> UpdateLeaveType(int id, LeaveTypeVM leaveType)
         {
             try
             {
-                UpdateLeaveTypeDTO leaveTypeDto = _mapper.Map<UpdateLeaveTypeDTO>(leaveType);
+                UpdateLeaveTypeDTO leaveTypeDto = mapper.Map<UpdateLeaveTypeDTO>(leaveType);
 
                 AddBearerToken();
 

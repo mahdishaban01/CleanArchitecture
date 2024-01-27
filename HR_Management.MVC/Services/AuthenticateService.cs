@@ -8,17 +8,9 @@ using System.Security.Claims;
 
 namespace HR_Management.MVC.Services
 {
-    public class AuthenticateService : BaseHttpService, IAuthenticateService
+    public class AuthenticateService(IClient client, ILocalStorageService localStorage, IHttpContextAccessor httpContextAccessor) : BaseHttpService(client, localStorage), IAuthenticateService
     {
-        private IHttpContextAccessor _httpContextAccessor;
-        private JwtSecurityTokenHandler _jwtSecurityTokenHandler;
-
-        public AuthenticateService(IClient client, ILocalStorageService localStorage, IHttpContextAccessor httpContextAccessor ) 
-            : base(client, localStorage)
-        {
-            _httpContextAccessor = httpContextAccessor;
-            _jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
-        }
+        private JwtSecurityTokenHandler _jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
 
         public async Task<bool> Authenticate(string email, string password)
         {
@@ -36,7 +28,7 @@ namespace HR_Management.MVC.Services
                     var claims = ParseClaims(tokenContent);
                     var user = new ClaimsPrincipal(new ClaimsIdentity(claims,
                         CookieAuthenticationDefaults.AuthenticationScheme));
-                    var login = _httpContextAccessor.HttpContext.SignInAsync(
+                    var login = httpContextAccessor.HttpContext.SignInAsync(
                         CookieAuthenticationDefaults.AuthenticationScheme, user);
 
                     _localStorage.SetStorageValue("token",authenticateResponse.Token);
@@ -56,7 +48,7 @@ namespace HR_Management.MVC.Services
         public async Task Logout()
         {
            _localStorage.ClearStorage(new List<string>(){ "token" });
-           await _httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+           await httpContextAccessor.HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
         }
 
         public async Task<bool> Register(RegisterVM register)

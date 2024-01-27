@@ -4,14 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HR_Management.MVC.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController(IAuthenticateService authenticateService) : Controller
     {
-        private IAuthenticateService _authenticateService;
-
-        public UsersController(IAuthenticateService authenticateService)
-        {
-            _authenticateService = authenticateService;
-        }
 
         #region Register
 
@@ -29,7 +23,7 @@ namespace HR_Management.MVC.Controllers
                 return View(register);
             }
 
-            var isCreated = await _authenticateService.Register(register);
+            var isCreated = await authenticateService.Register(register);
             if (isCreated)
             {
                 return LocalRedirect("/");
@@ -51,7 +45,7 @@ namespace HR_Management.MVC.Controllers
         public async Task<IActionResult> Login(LoginVM login, string returnUrl)
         {
             returnUrl ??= Url.Content("~/");
-            var isLoggedIn = await _authenticateService.Authenticate(login.Email, login.Passsword);
+            var isLoggedIn = await authenticateService.Authenticate(login.Email, login.Passsword);
             if (isLoggedIn)
             {
                 return LocalRedirect(returnUrl);
@@ -68,7 +62,7 @@ namespace HR_Management.MVC.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            await _authenticateService.Logout();
+            await authenticateService.Logout();
             return LocalRedirect("/Users/Login");
         }
 

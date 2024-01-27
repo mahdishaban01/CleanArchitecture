@@ -5,11 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HR_Management.Identity
 {
-    public class LeaveManagementIdentityDbContext : IdentityDbContext<ApplicationUser>
+    public class LeaveManagementIdentityDbContext(DbContextOptions<LeaveManagementIdentityDbContext> options) : 
+        IdentityDbContext<ApplicationUser>(options)
     {
-        public LeaveManagementIdentityDbContext(DbContextOptions<LeaveManagementIdentityDbContext> options)
-            : base(options) { }
-        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

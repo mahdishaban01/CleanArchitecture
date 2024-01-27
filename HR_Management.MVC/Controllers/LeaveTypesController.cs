@@ -1,24 +1,15 @@
 ﻿using HR_Management.MVC.Contracts;
 using HR_Management.MVC.Models;
-using HR_Management.MVC.Services.Base;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HR_Management.MVC.Controllers
 {
-    public class LeaveTypesController : Controller
+    public class LeaveTypesController(ILeaveTypeService leaveTypeService) : Controller
     {
-        private readonly ILeaveTypeService _leaveTypeService;
-
-        public LeaveTypesController(ILeaveTypeService leaveTypeService)
-        {
-            _leaveTypeService = leaveTypeService;
-        }
         // GET: LeaveTypesController
         public async Task<ActionResult> Index()
         {
-            var leaveTypes = await _leaveTypeService.GetLeaveTypes();
+            var leaveTypes = await leaveTypeService.GetLeaveTypes();
             return View(leaveTypes);
         }
 
@@ -35,7 +26,7 @@ namespace HR_Management.MVC.Controllers
         {
             try
             {
-                var response = await _leaveTypeService.CreateLeaveType(createLeave);
+                var response = await leaveTypeService.CreateLeaveType(createLeave);
                 if (response.Success)
                 {
                     return RedirectToAction("Index");
@@ -54,7 +45,7 @@ namespace HR_Management.MVC.Controllers
 
         public async Task<ActionResult> Edit(int id)
         {
-            var leaveType = await _leaveTypeService.GetLeaveTypeDetails(id);
+            var leaveType = await leaveTypeService.GetLeaveTypeDetails(id);
             return View(leaveType);
         }
 
@@ -65,7 +56,7 @@ namespace HR_Management.MVC.Controllers
         {
             try
             {
-                var response = await _leaveTypeService.UpdateLeaveType(id, leaveType);
+                var response = await leaveTypeService.UpdateLeaveType(id, leaveType);
                 if (response.Success)
                 {
                     return RedirectToAction("Index");
@@ -83,7 +74,7 @@ namespace HR_Management.MVC.Controllers
         // GET: LeaveTypesController/Details/5
         public async Task<ActionResult> Details(int id)
         {
-            var leaveType = await _leaveTypeService.GetLeaveTypeDetails(id);
+            var leaveType = await leaveTypeService.GetLeaveTypeDetails(id);
             return View(leaveType);
         }
 
@@ -98,7 +89,7 @@ namespace HR_Management.MVC.Controllers
         {
             try
             {
-                var response = await _leaveTypeService.DeleteLeaveType(id);
+                var response = await leaveTypeService.DeleteLeaveType(id);
                 if (response.Success)
                 {
                     return RedirectToAction("Index");
