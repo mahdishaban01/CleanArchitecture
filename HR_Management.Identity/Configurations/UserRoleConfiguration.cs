@@ -1,8 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
-namespace HR_Management.Identity.Configurations
+﻿namespace HR_Management.Identity.Configurations
 {
     public class UserRoleConfiguration : IEntityTypeConfiguration<IdentityUserRole<string>>
     {

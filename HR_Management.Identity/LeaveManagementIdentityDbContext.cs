@@ -1,7 +1,5 @@
 ﻿using HR_Management.Identity.Configurations;
-using HR_Management.Identity.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 
 namespace HR_Management.Identity
 {

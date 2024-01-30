@@ -1,14 +1,7 @@
-﻿using HR_Management.Application.Contracts.Identity;
-using HR_Management.Application.Models.Identity;
-using HR_Management.Identity.Models;
-using HR_Management.Identity.Services;
+﻿using HR_Management.Identity.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 namespace HR_Management.Identity
 {

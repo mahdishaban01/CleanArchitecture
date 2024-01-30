@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-
-namespace HR_Management.Identity.Models
+﻿namespace HR_Management.Identity.Models
 {
     public class ApplicationUser : IdentityUser
     {
