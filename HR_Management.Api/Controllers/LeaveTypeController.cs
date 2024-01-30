@@ -1,9 +1,6 @@
 ﻿using HR_Management.Application.DTOs.LeaveType;
 using HR_Management.Application.Features.LeaveType.Requests.Commands;
 using HR_Management.Application.Features.LeaveType.Requests.Queries;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
 
 namespace HR_Management.Api.Controllers
 {
@@ -39,8 +36,8 @@ namespace HR_Management.Api.Controllers
         }
 
         // PUT api/<LeaveTypeController>/5
-        [HttpPut("{id}")]
-        public async Task<ActionResult> Put(long id, [FromBody] UpdateLeaveTypeDTO leaveType)
+        [HttpPut()]
+        public async Task<ActionResult> Put([FromBody] UpdateLeaveTypeDTO leaveType)
         {
             var command = new UpdateLeaveTypeRequest { UpdateLeaveTypeDTO = leaveType };
             await mediator.Send(command);

@@ -48,7 +48,7 @@ app.MapControllers();
 
 app.Run();
 
-void AddSwagger(IServiceCollection services)
+static void AddSwagger(IServiceCollection services)
 {
     services.AddSwaggerGen(options =>
     {
