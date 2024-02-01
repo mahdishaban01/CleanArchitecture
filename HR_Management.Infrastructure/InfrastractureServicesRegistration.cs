@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Contracts.Infrastructure;
-using HR_Management.Application.Models;
-using HR_Management.Infrastructure.Mail;
+﻿using HR_Management.Infrastructure.Mail;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

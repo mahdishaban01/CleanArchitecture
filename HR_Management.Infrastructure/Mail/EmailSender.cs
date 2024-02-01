@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Contracts.Infrastructure;
-using HR_Management.Application.Models;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
