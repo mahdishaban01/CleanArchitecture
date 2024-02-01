@@ -1,7 +1,4 @@
-﻿using HR_Management.Application.DTOs.LeaveRequest.Validators;
-using HR_Management.Application.Exceptions;
-
-namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
+﻿namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
 {
     public class UpdateLeaveRequestRequestHandler(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository, IMapper mapper) :
         IRequestHandler<UpdateLeaveRequestRequest, Unit>

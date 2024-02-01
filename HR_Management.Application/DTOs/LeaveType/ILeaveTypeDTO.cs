@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HR_Management.Application.DTOs.LeaveType
+﻿namespace HR_Management.Application.DTOs.LeaveType
 {
     public interface ILeaveTypeDTO
     {

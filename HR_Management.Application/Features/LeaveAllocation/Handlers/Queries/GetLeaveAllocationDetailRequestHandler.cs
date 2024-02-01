@@ -1,4 +1,6 @@
-﻿namespace HR_Management.Application.Features.LeaveAllocation.Handlers.Queries
+﻿using HR_Management.Application.Features.LeaveAllocation.Requests.Queries;
+
+namespace HR_Management.Application.Features.LeaveAllocation.Handlers.Queries
 {
     public class GetLeaveAllocationDetailRequestHandler(ILeaveAllocationRepository leaveAllocationRepository, IMapper mapper) :
         IRequestHandler<GetLeaveAllocationDetailRequest, LeaveAllocationDTO>

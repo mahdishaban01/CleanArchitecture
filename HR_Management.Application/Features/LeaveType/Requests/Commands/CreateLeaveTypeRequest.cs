@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Responses;
-
-namespace HR_Management.Application.Features.LeaveType.Requests.Commands
+﻿namespace HR_Management.Application.Features.LeaveType.Requests.Commands
 {
     public class CreateLeaveTypeRequest : IRequest<BaseCommandResponse>
     {

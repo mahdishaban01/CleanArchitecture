@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace HR_Management.Application.DTOs.LeaveType.Validators
+﻿namespace HR_Management.Application.DTOs.LeaveType.Validators
 {
     public class ILeaveTypeDTOValidator : AbstractValidator<ILeaveTypeDTO>
     {

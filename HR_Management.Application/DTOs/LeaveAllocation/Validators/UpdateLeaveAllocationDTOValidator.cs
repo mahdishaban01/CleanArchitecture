@@ -1,10 +1,4 @@
-﻿using FluentValidation;
-using HR_Management.Application.Contracts.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HR_Management.Application.DTOs.LeaveAllocation.Validators
+﻿namespace HR_Management.Application.DTOs.LeaveAllocation.Validators
 {
     public class UpdateLeaveAllocationDTOValidator : AbstractValidator<UpdateLeaveAllocationDTO>
     {

@@ -1,7 +1,5 @@
 ﻿using HR_Management.Application.Contracts.Infrastructure;
-using HR_Management.Application.DTOs.LeaveRequest.Validators;
 using HR_Management.Application.Models;
-using HR_Management.Application.Responses;
 
 namespace HR_Management.Application.Features.LeaveRequest.Handlers.Commands
 {

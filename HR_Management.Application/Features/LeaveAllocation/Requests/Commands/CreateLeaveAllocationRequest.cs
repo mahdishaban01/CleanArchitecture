@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Responses;
-
-namespace HR_Management.Application.Features.LeaveAllocation.Requests.Commands
+﻿namespace HR_Management.Application.Features.LeaveAllocation.Requests.Commands
 {
     public class CreateLeaveAllocationRequest : IRequest<BaseCommandResponse>
     {

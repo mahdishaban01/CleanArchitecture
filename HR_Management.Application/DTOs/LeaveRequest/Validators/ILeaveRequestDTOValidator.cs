@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace HR_Management.Application.DTOs.LeaveRequest.Validators
+﻿namespace HR_Management.Application.DTOs.LeaveRequest.Validators
 {
     public class ILeaveRequestDTOValidator : AbstractValidator<ILeaveRequestDTO>
     {

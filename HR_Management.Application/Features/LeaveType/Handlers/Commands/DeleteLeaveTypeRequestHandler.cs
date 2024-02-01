@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Exceptions;
-
-namespace HR_Management.Application.Features.LeaveType.Handlers.Commands
+﻿namespace HR_Management.Application.Features.LeaveType.Handlers.Commands
 {
     public class DeleteLeaveTypeRequestHandler(ILeaveTypeRepository leaveTypeRepository) :
         IRequestHandler<DeleteLeaveTypeRequest>

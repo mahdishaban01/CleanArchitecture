@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Exceptions;
-
-namespace HR_Management.Application.Features.LeaveAllocation.Handlers.Commands
+﻿namespace HR_Management.Application.Features.LeaveAllocation.Handlers.Commands
 {
     public class DeleteLeaveAllocationRequestHandler(ILeaveAllocationRepository leaveAllocationRepository, IMapper mapper) :
         IRequestHandler<DeleteLeaveAllocationRequest>

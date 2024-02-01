@@ -1,9 +1,7 @@
-﻿using HR_Management.Application.DTOs.LeaveAllocation.Validators;
-using HR_Management.Application.Responses;
-
-namespace HR_Management.Application.Features.LeaveAllocation.Handlers.Commands
+﻿namespace HR_Management.Application.Features.LeaveAllocation.Handlers.Commands
 {
-    public class CreateLeaveAllocationRequestHandler(ILeaveAllocationRepository leaveAllocationRepository, ILeaveTypeRepository leaveTypeRepository, IMapper mapper) :
+    public class CreateLeaveAllocationRequestHandler(ILeaveAllocationRepository leaveAllocationRepository,
+        ILeaveTypeRepository leaveTypeRepository, IMapper mapper) :
         IRequestHandler<CreateLeaveAllocationRequest, BaseCommandResponse>
     {
         public async Task<BaseCommandResponse> Handle(CreateLeaveAllocationRequest request, CancellationToken cancellationToken)

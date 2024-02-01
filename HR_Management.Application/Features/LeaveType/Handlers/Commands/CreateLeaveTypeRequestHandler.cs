@@ -1,7 +1,4 @@
-﻿using HR_Management.Application.DTOs.LeaveType.Validators;
-using HR_Management.Application.Responses;
-
-namespace HR_Management.Application.Features.LeaveType.Handlers.Commands
+﻿namespace HR_Management.Application.Features.LeaveType.Handlers.Commands
 {
     public class CreateLeaveTypeRequestHandler(ILeaveTypeRepository leaveTypeRepository, IMapper mapper) :
         IRequestHandler<CreateLeaveTypeRequest, BaseCommandResponse>

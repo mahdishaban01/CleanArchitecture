@@ -1,5 +1,4 @@
-﻿using HR_Management.Application.DTOs.LeaveAllocation.Validators;
-using HR_Management.Application.Exceptions;
+﻿using ValidationException = HR_Management.Application.Exceptions.ValidationException;
 
 namespace HR_Management.Application.Features.LeaveAllocation.Handlers.Commands
 {

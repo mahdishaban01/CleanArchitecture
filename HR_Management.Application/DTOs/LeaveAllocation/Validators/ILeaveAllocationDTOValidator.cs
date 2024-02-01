@@ -1,18 +1,12 @@
-﻿using FluentValidation;
-using HR_Management.Application.Contracts.Persistence;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace HR_Management.Application.DTOs.LeaveAllocation.Validators
+﻿namespace HR_Management.Application.DTOs.LeaveAllocation.Validators
 {
-    public class ILeaveAllocationDTOValidator:AbstractValidator<ILeaveAllocationDTO>
+    public class ILeaveAllocationDTOValidator : AbstractValidator<ILeaveAllocationDTO>
     {
         private readonly ILeaveTypeRepository _leaveTypeRepository;
 
         public ILeaveAllocationDTOValidator(ILeaveTypeRepository leaveTypeRepository)
         {
-            this._leaveTypeRepository = leaveTypeRepository;
+            _leaveTypeRepository = leaveTypeRepository;
 
             RuleFor(p => p.NumberOfDays)
                 .GreaterThan(0).WithMessage("{PropertyName} must greater than {ComparisonValue}");
