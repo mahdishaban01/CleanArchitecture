@@ -1,6 +1,4 @@
 ﻿using HR_Management.Domain.Common;
-using HR_Management.Domain.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace HR_Management.Persistence
 {
