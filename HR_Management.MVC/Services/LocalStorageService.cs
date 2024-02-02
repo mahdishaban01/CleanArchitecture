@@ -1,5 +1,4 @@
-﻿using HR_Management.MVC.Contracts;
-using Hanssens.Net;
+﻿using Hanssens.Net;
 
 namespace HR_Management.MVC.Services
 {

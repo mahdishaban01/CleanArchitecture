@@ -1,8 +1,4 @@
-﻿using HR_Management.MVC.Contracts;
-using HR_Management.MVC.Models;
-using Microsoft.AspNetCore.Mvc;
-
-namespace HR_Management.MVC.Controllers
+﻿namespace HR_Management.MVC.Controllers
 {
     public class UsersController(IAuthenticateService authenticateService) : Controller
     {

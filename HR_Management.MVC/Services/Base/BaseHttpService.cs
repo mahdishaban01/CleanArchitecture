@@ -1,5 +1,4 @@
-﻿using HR_Management.MVC.Contracts;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 
 namespace HR_Management.MVC.Services.Base
 {

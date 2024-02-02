@@ -1,9 +1,4 @@
-﻿using AutoMapper;
-using HR_Management.MVC.Contracts;
-using HR_Management.MVC.Models;
-using HR_Management.MVC.Services.Base;
-
-namespace HR_Management.MVC.Services
+﻿namespace HR_Management.MVC.Services
 {
     public class LeaveTypeService(IMapper mapper, IClient httpClient, ILocalStorageService localStorageService) : 
         BaseHttpService(httpClient, localStorageService),ILeaveTypeService

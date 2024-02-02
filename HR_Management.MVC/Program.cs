@@ -1,9 +1,5 @@
-using HR_Management.MVC.Contracts;
 using HR_Management.MVC.Services;
-using HR_Management.MVC.Services.Base;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Reflection;
-using System.Security.Authentication.ExtendedProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 

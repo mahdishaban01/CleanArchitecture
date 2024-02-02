@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace HR_Management.MVC.Models
+﻿namespace HR_Management.MVC.Models
 {
     public class CreateLeaveTypeVM : LeaveTypeVM
     {
