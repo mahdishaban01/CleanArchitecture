@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Contracts.Persistence;
-using HR_Management.Domain.Entities;
-using Moq;
+﻿using HR_Management.Domain.Entities;
 
 namespace HR_Management.Application.UnitTests.Mocks
 {

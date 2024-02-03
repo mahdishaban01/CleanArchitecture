@@ -1,0 +1,9 @@
+global using Xunit;
+global using AutoMapper;
+global using Moq;
+global using Shouldly;
+global using HR_Management.Application.Profiles;
+global using HR_Management.Application.Contracts.Persistence;
+global using HR_Management.Application.DTOs.LeaveType;
+global using HR_Management.Application.Responses;
+global using HR_Management.Application.UnitTests.Mocks;

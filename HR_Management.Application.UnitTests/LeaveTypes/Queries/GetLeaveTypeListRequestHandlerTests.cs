@@ -1,12 +1,5 @@
-﻿using AutoMapper;
-using HR_Management.Application.Contracts.Persistence;
-using HR_Management.Application.DTOs.LeaveType;
-using HR_Management.Application.Features.LeaveType.Handlers.Queries;
+﻿using HR_Management.Application.Features.LeaveType.Handlers.Queries;
 using HR_Management.Application.Features.LeaveType.Requests.Queries;
-using HR_Management.Application.Profiles;
-using HR_Management.Application.UnitTests.Mocks;
-using Moq;
-using Shouldly;
 
 namespace HR_Management.Application.UnitTests.LeaveTypes.Queries
 {
