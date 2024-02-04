@@ -1,15 +1,17 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
 namespace HR_Management.Identity.Migrations
 {
     /// <inheritdoc />
     public partial class IdentityDB : Migration
     {
+        private static readonly string[] columns = ["Id", "ConcurrencyStamp", "Name", "NormalizedName"];
+        private static readonly string[] columnsArray = ["Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName"];
+        private static readonly string[] columnsArray0 = ["RoleId", "UserId"];
+
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -162,7 +164,7 @@ namespace HR_Management.Identity.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
-                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                columns: columns,
                 values: new object[,]
                 {
                     { "9845f909-799c-45fd-9158-58c1336ffddc", null, "Employee", "EMPLOYEE" },
@@ -171,7 +173,7 @@ namespace HR_Management.Identity.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                columns: columnsArray,
                 values: new object[,]
                 {
                     { "05446344-f9cc-4566-bd2c-36791b4e28ed", 0, "07b10e15-8f9a-4c3c-868b-fc326358f4d8", "admin@localhost.com", true, "Admin", "Adminian", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEE6gDQoXnC2D6dGSOfE2hG4XMidtuRPOd3TF6+ME9ZZRkCGRbxhltkrqJsD9n46tnQ==", null, false, "3b6edd5f-4b2d-48d3-9214-ff1182dfeae6", false, "admin@localhost.com" },
@@ -180,7 +182,7 @@ namespace HR_Management.Identity.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
-                columns: new[] { "RoleId", "UserId" },
+                columns: columnsArray0,
                 values: new object[,]
                 {
                     { "cb275765-1cac-4652-a03f-f8871dd575d1", "05446344-f9cc-4566-bd2c-36791b4e28ed" },
