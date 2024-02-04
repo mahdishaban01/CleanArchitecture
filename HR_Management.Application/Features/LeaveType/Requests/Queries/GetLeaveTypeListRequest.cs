@@ -1,6 +1,5 @@
-﻿namespace HR_Management.Application.Features.LeaveType.Requests.Queries
+﻿namespace HR_Management.Application.Features.LeaveType.Requests.Queries;
+
+public class GetLeaveTypeListRequest : IRequest<List<LeaveTypeDTO>>
 {
-    public class GetLeaveTypeListRequest : IRequest<List<LeaveTypeDTO>>
-    {
-    }
 }

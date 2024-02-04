@@ -1,16 +1,15 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
-namespace HR_Management.Application
-{
-    public static class ApplicationServicesRegistration
-    {
-        public static void ConfigureApplicationServices(this IServiceCollection services)
-        {
-            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+namespace HR_Management.Application;
 
-            services.AddMediatR(config =>
-                config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
-        }
+public static class ApplicationServicesRegistration
+{
+    public static void ConfigureApplicationServices(this IServiceCollection services)
+    {
+        services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+        services.AddMediatR(config =>
+            config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
     }
 }

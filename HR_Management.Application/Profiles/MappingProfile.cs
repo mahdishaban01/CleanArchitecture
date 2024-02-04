@@ -1,32 +1,31 @@
-﻿namespace HR_Management.Application.Profiles
+﻿namespace HR_Management.Application.Profiles;
+
+public class MappingProfile : Profile
 {
-    public class MappingProfile : Profile
+    public MappingProfile()
     {
-        public MappingProfile()
-        {
-            #region LeaveRequest
+        #region LeaveRequest
 
-            CreateMap<LeaveRequest, LeaveRequestDTO>().ReverseMap();
-            CreateMap<LeaveRequest, CreateLeaveRequestDTO>().ReverseMap();
-            CreateMap<LeaveRequest, UpdateLeaveRequestDTO>().ReverseMap();
+        CreateMap<LeaveRequest, LeaveRequestDTO>().ReverseMap();
+        CreateMap<LeaveRequest, CreateLeaveRequestDTO>().ReverseMap();
+        CreateMap<LeaveRequest, UpdateLeaveRequestDTO>().ReverseMap();
 
-            #endregion
+        #endregion
 
-            #region LeaveAllocation
+        #region LeaveAllocation
 
-            CreateMap<LeaveAllocation, LeaveAllocationDTO>().ReverseMap();
-            CreateMap<LeaveAllocation, CreateLeaveAllocationDTO>().ReverseMap();
-            CreateMap<LeaveAllocation, UpdateLeaveAllocationDTO>().ReverseMap();
+        CreateMap<LeaveAllocation, LeaveAllocationDTO>().ReverseMap();
+        CreateMap<LeaveAllocation, CreateLeaveAllocationDTO>().ReverseMap();
+        CreateMap<LeaveAllocation, UpdateLeaveAllocationDTO>().ReverseMap();
 
-            #endregion
+        #endregion
 
-            #region LeaveType
+        #region LeaveType
 
-            CreateMap<LeaveType, LeaveTypeDTO>().ReverseMap();
-            CreateMap<LeaveType, CreateLeaveTypeDTO>().ReverseMap();
-            CreateMap<LeaveType, UpdateLeaveTypeDTO>().ReverseMap();
+        CreateMap<LeaveType, LeaveTypeDTO>().ReverseMap();
+        CreateMap<LeaveType, CreateLeaveTypeDTO>().ReverseMap();
+        CreateMap<LeaveType, UpdateLeaveTypeDTO>().ReverseMap();
 
-            #endregion
-        }
+        #endregion
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace HR_Management.Application.Models.Identity
+﻿namespace HR_Management.Application.Models.Identity;
+
+public class RegisterationResponse
 {
-    public class RegisterationResponse
-    {
-        public string UserId { get; set; }
-    }
+    public string UserId { get; set; }
 }

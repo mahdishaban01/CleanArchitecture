@@ -1,7 +1,6 @@
-﻿namespace HR_Management.Application.Features.LeaveType.Requests.Commands
+﻿namespace HR_Management.Application.Features.LeaveType.Requests.Commands;
+
+public class UpdateLeaveTypeRequest : IRequest<Unit>
 {
-    public class UpdateLeaveTypeRequest : IRequest<Unit>
-    {
-        public UpdateLeaveTypeDTO UpdateLeaveTypeDTO { get; set; }
-    }
+    public UpdateLeaveTypeDTO UpdateLeaveTypeDTO { get; set; }
 }

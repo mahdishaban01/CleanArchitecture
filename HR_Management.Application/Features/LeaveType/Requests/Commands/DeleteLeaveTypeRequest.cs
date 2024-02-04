@@ -1,7 +1,6 @@
-﻿namespace HR_Management.Application.Features.LeaveType.Requests.Commands
+﻿namespace HR_Management.Application.Features.LeaveType.Requests.Commands;
+
+public class DeleteLeaveTypeRequest : IRequest
 {
-    public class DeleteLeaveTypeRequest : IRequest
-    {
-        public long Id { get; set; }
-    }
+    public long Id { get; set; }
 }

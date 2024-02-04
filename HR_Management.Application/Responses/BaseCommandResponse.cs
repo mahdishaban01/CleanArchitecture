@@ -1,10 +1,9 @@
-﻿namespace HR_Management.Application.Responses
+﻿namespace HR_Management.Application.Responses;
+
+public class BaseCommandResponse
 {
-    public class BaseCommandResponse
-    {
-        public long Id { get; set; }
-        public bool Success { get; set; }
-        public string Message { get; set; }
-        public List<string> Errors { get; set; }
-    }
+    public long Id { get; set; }
+    public bool Success { get; set; }
+    public string Message { get; set; }
+    public List<string> Errors { get; set; }
 }
