@@ -1,12 +1,11 @@
-﻿namespace HR_Management.Domain.Entities
+﻿namespace HR_Management.Domain.Entities;
+
+public class LeaveType : BaseEntity
 {
-    public class LeaveType : BaseEntity
-    {
-        #region Properties
+    #region Properties
 
-        public string Name { get; set; }
-        public int DefaultDay { get; set; }
+    public string Name { get; set; }
+    public int DefaultDay { get; set; }
 
-        #endregion
-    }
+    #endregion
 }
