@@ -1,7 +1,7 @@
 using HR_Management.Application;
+using HR_Management.Identity;
 using HR_Management.Infrastructure;
 using HR_Management.Persistence;
-using HR_Management.Identity;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
