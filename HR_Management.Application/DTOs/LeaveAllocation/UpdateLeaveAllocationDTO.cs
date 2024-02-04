@@ -1,9 +1,8 @@
-﻿namespace HR_Management.Application.DTOs.LeaveAllocation
+﻿namespace HR_Management.Application.DTOs.LeaveAllocation;
+
+public class UpdateLeaveAllocationDTO : BaseDTO, ILeaveAllocationDTO
 {
-    public class UpdateLeaveAllocationDTO : BaseDTO, ILeaveAllocationDTO
-    {
-        public int NumberOfDays { get; set; }
-        public int LeaveTypeId { get; set; }
-        public int Priod { get; set; }
-    }
+    public int NumberOfDays { get; set; }
+    public int LeaveTypeId { get; set; }
+    public int Priod { get; set; }
 }

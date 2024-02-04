@@ -1,6 +1,5 @@
-﻿namespace HR_Management.Application.Exceptions
+﻿namespace HR_Management.Application.Exceptions;
+
+public class BadRequestException(string message) : ApplicationException(message)
 {
-    public class BadRequestException(string message) : ApplicationException(message)
-    {
-    }
 }

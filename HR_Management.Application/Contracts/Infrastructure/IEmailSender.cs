@@ -1,9 +1,8 @@
 ﻿using HR_Management.Application.Models;
 
-namespace HR_Management.Application.Contracts.Infrastructure
+namespace HR_Management.Application.Contracts.Infrastructure;
+
+public interface IEmailSender
 {
-    public interface IEmailSender
-    {
-        Task<bool> SendEmail(Email email);
-    }
+    Task<bool> SendEmail(Email email);
 }

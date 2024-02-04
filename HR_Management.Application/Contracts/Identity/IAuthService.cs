@@ -1,10 +1,9 @@
 ﻿using HR_Management.Application.Models.Identity;
 
-namespace HR_Management.Application.Contracts.Identity
+namespace HR_Management.Application.Contracts.Identity;
+
+public interface IAuthService
 {
-    public interface IAuthService
-    {
-        Task<AuthResponse> Login(AuthRequest request);
-        Task<RegisterationResponse> Register(RegisterationRequest request);
-    }
+    Task<AuthResponse> Login(AuthRequest request);
+    Task<RegisterationResponse> Register(RegisterationRequest request);
 }
