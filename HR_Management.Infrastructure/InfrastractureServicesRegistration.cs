@@ -2,18 +2,17 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HR_Management.Infrastructure
+namespace HR_Management.Infrastructure;
+
+public static class InfrastructureServicesRegistration
 {
-    public static class InfrastructureServicesRegistration
+    public static IServiceCollection ConfigureInfrastructureServices(this IServiceCollection services,
+    IConfiguration configuration)
     {
-        public static IServiceCollection ConfigureInfrastructureServices(this IServiceCollection services,
-        IConfiguration configuration)
-        {
 
-            services.Configure<EmailSetting>(configuration.GetSection("EmailSettings"));
-            services.AddTransient<IEmailSender, EmailSender>();
+        services.Configure<EmailSetting>(configuration.GetSection("EmailSettings"));
+        services.AddTransient<IEmailSender, EmailSender>();
 
-            return services;
-        }
+        return services;
     }
 }
