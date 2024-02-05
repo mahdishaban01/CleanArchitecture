@@ -1,6 +1,4 @@
-﻿using HR_Management.Application.Contracts.Persistence;
-
-namespace HR_Management.Persistence.Repositories
+﻿namespace HR_Management.Persistence.Repositories
 {
     public class LeaveRequestRepository(LeaveManagementDbContext dbContext) : 
         GenericRepository<LeaveRequest>(dbContext), ILeaveRequestRepository
