@@ -1,9 +1,8 @@
-﻿namespace HR_Management.MVC.Contracts
+﻿namespace HR_Management.MVC.Contracts;
+
+public interface IAuthenticateService
 {
-    public interface IAuthenticateService
-    {
-        Task<bool> Authenticate(string email, string password);
-        Task<bool> Register(RegisterVM register);
-        Task Logout();
-    }
+    Task<bool> Authenticate(string email, string password);
+    Task<bool> Register(RegisterVM register);
+    Task Logout();
 }

@@ -1,15 +1,14 @@
-﻿namespace HR_Management.MVC.Controllers
-{
-    public class HomeController : Controller
-    {
-        public IActionResult Index()
-        {
-            return View();
-        }
+﻿namespace HR_Management.MVC.Controllers;
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+public class HomeController : Controller
+{
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    public IActionResult Privacy()
+    {
+        return View();
     }
 }

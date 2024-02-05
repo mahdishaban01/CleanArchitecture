@@ -1,7 +1,6 @@
-﻿namespace HR_Management.MVC.Models
+﻿namespace HR_Management.MVC.Models;
+
+public class LeaveTypeVM
 {
-    public class LeaveTypeVM
-    {
-        public long Id { get; set; }
-    }
+    public long Id { get; set; }
 }

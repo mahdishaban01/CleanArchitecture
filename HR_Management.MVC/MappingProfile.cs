@@ -1,12 +1,11 @@
-﻿namespace HR_Management.MVC
+﻿namespace HR_Management.MVC;
+
+public class MappingProfile : Profile
 {
-    public class MappingProfile : Profile
+    public MappingProfile()
     {
-        public MappingProfile()
-        {
-            CreateMap<CreateLeaveTypeDTO, CreateLeaveTypeVM>().ReverseMap();
-            CreateMap<UpdateLeaveTypeDTO, UpdateLeaveTypeVM>().ReverseMap();
-            CreateMap<LeaveTypeDTO, LeaveTypeVM>().ReverseMap();
-        }
+        CreateMap<CreateLeaveTypeDTO, CreateLeaveTypeVM>().ReverseMap();
+        CreateMap<UpdateLeaveTypeDTO, UpdateLeaveTypeVM>().ReverseMap();
+        CreateMap<LeaveTypeDTO, LeaveTypeVM>().ReverseMap();
     }
 }

@@ -1,7 +1,6 @@
-﻿namespace HR_Management.MVC.Services.Base
+﻿namespace HR_Management.MVC.Services.Base;
+
+public partial interface IClient
 {
-    public partial interface IClient
-    {
-        public HttpClient HttpClient { get; }
-    }
+    public HttpClient HttpClient { get; }
 }
