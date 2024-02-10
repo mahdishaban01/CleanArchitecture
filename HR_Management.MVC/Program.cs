@@ -24,7 +24,7 @@ builder.Services.AddSingleton<ILocalStorageService, LocalStorageService>();
 builder.Services.AddScoped<ILeaveTypeService, LeaveTypeService>();
 builder.Services.AddScoped<IAuthenticateService, AuthenticateService>();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddMvcCore();
 
 var app = builder.Build();
 

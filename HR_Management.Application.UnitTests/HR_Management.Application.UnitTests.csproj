@@ -6,7 +6,6 @@
     <Nullable>disable</Nullable>
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <PublishAot>true</PublishAot>
   </PropertyGroup>
 
   <ItemGroup>
